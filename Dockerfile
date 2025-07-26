@@ -1,26 +1,7 @@
-version: '3'
-
-services:
-  woodpecker-server:
-    image: woodpeckerci/woodpecker-server:latest
-    restart: always
-    environment:
-      WOODPECKER_OPEN: 'true'
-      WOODPECKER_HOST: '${WOODPECKER_HOST}'
-      WOODPECKER_GITHUB: 'true'
-      WOODPECKER_GITHUB_CLIENT: '${WOODPECKER_GITHUB_CLIENT}'
-      WOODPECKER_GITHUB_SECRET: '${WOODPECKER_GITHUB_SECRET}'
-      WOODPECKER_ADMIN: '${WOODPECKER_ADMIN}'
-      WOODPECKER_AGENT_SECRET: '${WOODPECKER_AGENT_SECRET}'
-    ports:
-      - 8000:8000
-      - 9000:9000
-
-  woodpecker-agent:
-    image: woodpeckerci/woodpecker-agent:latest
-    restart: always
-    depends_on:
-      - woodpecker-server
-    environment:
-      WOODPECKER_SERVER: 'ws://woodpecker-server:9000'
-      WOODPECKER_AGENT_SECRET: '${WOODPECKER_AGENT_SECRET}'
+Steps to fix:
+Go to your GitHub repository
+Click on the Dockerfile
+Click the pencil icon (Edit)
+Delete all the current content
+Paste the Dockerfile content above
+Commit the changes
